@@ -33,17 +33,14 @@ Exploratory Data Analysis is used to derive insights into customer behavior, sal
 
 Top-selling products: 
 top_products = df.groupby('Description')['Quantity'].sum().sort_values(ascending=False).head(10)
-print(top_products)
-
+ 
 Sales by country:
 sales_by_country = df.groupby('Country')['Quantity'].sum().sort_values(ascending=False)
-print(sales_by_country)
 
 Revenue calculation:
 df['Revenue'] = df['Quantity'] * df['UnitPrice']
 total_revenue = df['Revenue'].sum()
 
-Revenue calculation:
 ## 4. Key Metrics Calculation
 To provide insights into the business's financial health, we calculate several key metrics:
 

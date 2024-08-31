@@ -32,12 +32,15 @@ Remove negative quantities: Negative values typically represent product returns,
 Exploratory Data Analysis is used to derive insights into customer behavior, sales performance, and product popularity.
 
 Top-selling products: 
+
 top_products = df.groupby('Description')['Quantity'].sum().sort_values(ascending=False).head(10)
  
 Sales by country:
+
 sales_by_country = df.groupby('Country')['Quantity'].sum().sort_values(ascending=False)
 
 Revenue calculation:
+
 df['Revenue'] = df['Quantity'] * df['UnitPrice']
 total_revenue = df['Revenue'].sum()
 

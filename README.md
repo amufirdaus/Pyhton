@@ -56,15 +56,23 @@ Visualizations help present insights in a clear and compelling manner. We use ma
 Top-selling products bar chart:
 
 import matplotlib.pyplot as plt
+
 import seaborn as sns
 
 plt.figure(figsize=(10,6))
+
 sns.barplot(x=top_products.values, y=top_products.index)
+
 plt.title('Top 10 Best Selling Products')
+
 plt.show()
 
 Revenue by country bar chart:
+
 plt.figure(figsize=(10,6))
+
 sns.barplot(x=sales_by_country.values, y=sales_by_country.index)
+
 plt.title('Revenue by Country')
+
 plt.show()

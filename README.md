@@ -31,9 +31,14 @@ Remove negative quantities: Negative values typically represent product returns,
 ## 3. Exploratory Data Analysis (EDA)
 Exploratory Data Analysis is used to derive insights into customer behavior, sales performance, and product popularity.
 
-Top-selling products:
-
+Top-selling products: 
+top_products = df.groupby('Description')['Quantity'].sum().sort_values(ascending=False).head(10)
+print(top_products):
+sales_by_country = df.groupby('Country')['Quantity'].sum().sort_values(ascending=False)
+print(sales_by_country)
 Sales by country:
+df['Revenue'] = df['Quantity'] * df['UnitPrice']
+total_revenue = df['Revenue'].sum()
 
 Revenue calculation:
 ## 4. Key Metrics Calculation
@@ -46,5 +51,16 @@ Average Order Value (AOV): This metric indicates the average revenue per order, 
 Visualizations help present insights in a clear and compelling manner. We use matplotlib and seaborn to create the following charts:
 
 Top-selling products bar chart:
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10,6))
+sns.barplot(x=top_products.values, y=top_products.index)
+plt.title('Top 10 Best Selling Products')
+plt.show()
 
 Revenue by country bar chart:
+plt.figure(figsize=(10,6))
+sns.barplot(x=sales_by_country.values, y=sales_by_country.index)
+plt.title('Revenue by Country')
+plt.show()

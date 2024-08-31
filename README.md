@@ -33,10 +33,13 @@ Exploratory Data Analysis is used to derive insights into customer behavior, sal
 
 Top-selling products: 
 top_products = df.groupby('Description')['Quantity'].sum().sort_values(ascending=False).head(10)
-print(top_products):
+print(top_products)
+
+Sales by country:
 sales_by_country = df.groupby('Country')['Quantity'].sum().sort_values(ascending=False)
 print(sales_by_country)
-Sales by country:
+
+Revenue calculation:
 df['Revenue'] = df['Quantity'] * df['UnitPrice']
 total_revenue = df['Revenue'].sum()
 
@@ -51,6 +54,7 @@ Average Order Value (AOV): This metric indicates the average revenue per order, 
 Visualizations help present insights in a clear and compelling manner. We use matplotlib and seaborn to create the following charts:
 
 Top-selling products bar chart:
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 
